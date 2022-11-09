@@ -1,5 +1,5 @@
 # Ingress controller
-
+![Build](https://img.shields.io/badge/build-passing-green?style=for-the-badge)
 ## Requirements
 
 - Install ingress nginx
