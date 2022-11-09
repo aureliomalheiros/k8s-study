@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-blue
+spec:
+  selector:
+    app: web-blue
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-green
+spec:
+  selector:
+    app: web-green
+  ports:
+  - port: 80
+    targetPort: 80
