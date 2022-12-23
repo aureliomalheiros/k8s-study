@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
-  namespace: app-web
+  name: web-cat-black
 spec:
   selector:
     matchLabels:
-      app: nginx
+      app: web-cat-black
   template:
     metadata:
       labels:
-        app: nginx
+        app: web-cat-black
     spec:
       containers:
-      - name: web
-        image: nginx
+      - name: web-cat-black
+        image: aureliosmalheiros/cat-black:0.1
         resources: {}
         ports:
         - containerPort: 80
@@ -22,20 +21,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-blue
-  namespace: app-web
+  name: web-cat-yellow
 spec:
   selector:
     matchLabels:
-      app: web-blue
+      app: web-cat-yellow
   template:
     metadata:
       labels:
-        app: web-blue
+        app: web-cat-yellow
     spec:
       containers:
-      - name: web
-        image: fabricioveronez/web-page:blue
+      - name: web-cat-yellow
+        image: aureliosmalheiros/cat-yellow:0.1
         resources: {}
         ports:
         - containerPort: 80
@@ -43,56 +41,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-green
-  namespace: app-web
+  name: web-cat-white
 spec:
   selector:
     matchLabels:
-      app: web-green
+      app: web-cat-white
   template:
     metadata:
       labels:
-        app: web-green
+        app: web-cat-white
     spec:
       containers:
-      - name: web
-        image: fabricioveronez/web-page:green
+      - name: web-cat-white
+        image: aureliosmalheiros/cat-white:0.1
         resources: {}
         ports:
         - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx
-  namespace: app-web
-spec:
-  selector:
-    app: nginx
-  ports:
-  - port: 80
-    targetPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: web-blue
-  namespace: app-web
-spec:
-  selector:
-    app: web-blue
-  ports:
-  - port: 80
-    targetPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: web-green
-  namespace: app-web
-spec:
-  selector:
-    app: web-green
-  ports:
-  - port: 80
-    targetPort: 80

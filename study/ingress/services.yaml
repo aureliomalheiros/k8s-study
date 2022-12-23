@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-cat-white
+spec:
+  selector:
+    app: web-cat-white
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-cat-black
+spec:
+  selector:
+    app: web-cat-black
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-cat-yellow
+spec:
+  selector:
+    app: web-cat-yellow
+  ports:
+  - port: 80
+    targetPort: 80
