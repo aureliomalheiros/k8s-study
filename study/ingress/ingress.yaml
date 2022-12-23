@@ -1,17 +1,40 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1 
 kind: Ingress
 metadata:
-  name: simples-ingress
-  namespace: app-web
-spec: 
-  ingressClassName: nginx
-  rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: web-blue
-                port:
-                  number: 80
+    name: ingress-basic
+    annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+    ingressClassName: nginx
+    rules:
+        - host: black.127.0.0.1.nip.io
+          http:
+            paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                        name: web-cat-black
+                        port:
+                            number: 80
+        - host: white.127.0.0.1.nip.io
+          http:
+            paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                        name: web-cat-white
+                        port:
+                            number: 80
+
+        - host: yellow.127.0.0.1.nip.io
+          http:
+            paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                      service:
+                          name: web-cat-yellow
+                          port:
+                              number: 80
