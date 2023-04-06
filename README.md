@@ -10,6 +10,7 @@
 
 ### Create cluster
 
+**K3D**
 
 Execute command:
 
@@ -27,3 +28,7 @@ Destroy cluster
 ```bash
 k3d cluster delete name_cluster
 ```
+
+**MINIKUBE**
+
+[Start Minikube](https://minikube.sigs.k8s.io/docs/start/)
