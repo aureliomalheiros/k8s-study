@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: env-dev
+  name: env-dev
+status:
+  phase: Active
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: env-test
+  name: env-test
+status:
+  phase: Active
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: env-uat
+  name: env-uat
+status:
+  phase: Active
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: env-prod
+  name: env-prod
+status:
+  phase: Active
