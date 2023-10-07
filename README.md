@@ -1,4 +1,4 @@
-# Lab study K3d
+# Lab study Kubernetes and Service Mesh
 
 ![Don't panic](https://img.shields.io/badge/env-don't%20panic-green?style=for-the-badge&logo=appveyor)
 ## Requirements
