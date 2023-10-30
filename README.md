@@ -33,7 +33,7 @@ k3d cluster delete name_cluster
 
 [Start Minikube](https://minikube.sigs.k8s.io/docs/start/)
 
-`minikube start --driver=virtualbox --cpus=2 --memory=3000`
+`minikube start --nodes=3 --driver=virtualbox --cpus=2 --memory=3000`
 
 
 ### ISTIO
