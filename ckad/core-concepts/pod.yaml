@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: my-app-pod
+  labels:
+    app: myapp
+    type: ingress
+    
+spec:
+  containers:
+  - name: myapp
+    image: nginx:latest
