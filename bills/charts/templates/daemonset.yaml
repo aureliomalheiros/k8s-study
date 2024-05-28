@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "bills.fullname" . }}
+  namespace: {{ .Values.application.namespace | default "default" }}
+  labels:
+    {{- include "bills.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "bills.name" . }}
+  template:
+    metadata:
+      labels:
+        {{- include "bills.labels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.application.image }}"
+          imagePullPolicy: {{ .Values.application.imagePullPolicy }}
+          resources:
+            {{- toYaml .Values.daemonset.resources | nindent 12 }}
