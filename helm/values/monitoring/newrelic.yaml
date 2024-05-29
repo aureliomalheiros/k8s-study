@@ -1,0 +1,86 @@
+application:
+  name: newrelic
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: newrelic
+    app.kubernetes.io/instance: newrelic
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: monitoring
+    app.kubernetes.io/part-of: monitoring
+    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/created-by: Helm
+  image:
+    repository: nginx
+    pullPolicy: IfNotPresent
+    tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+
+service:
+  type: ClusterIP
+  port: 80
+
+containers:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+  livenessProbe:
+    httpGet:
+      path: /
+      port: http
+  readinessProbe:
+    httpGet:
+      path: /
+      port: http
+
+namespace:
+  enabled: false
+  name: monitoring
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
