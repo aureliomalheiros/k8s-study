@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: service-job
+spec:
+  template:
+    metadata:
+      labels:
+        app: service-job
+    spec:
+      containers:
+      - name: service-job
+        image: tribix/service-job:v1.1
+        env:
+        - name: NUMBER
+          value: "1"
+        - name: DELAY
+          value: "10"
+      restartPolicy: Never
