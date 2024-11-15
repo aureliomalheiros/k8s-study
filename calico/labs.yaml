@@ -65,7 +65,7 @@ spec:
           - "-listen-client-urls"
           - "http://0.0.0.0:2379"
       nodeSelector:
-        kubernetes.io/hostname: minikube-m03
+        kubernetes.io/hostname: ip-10-0-2-147
 
 ---
 apiVersion: v1
@@ -171,5 +171,4 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: minikube-m02
----
+        kubernetes.io/hostname: ip-10-0-6-66
