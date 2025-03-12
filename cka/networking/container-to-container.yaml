@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: container-to-container
+spec:
+  containers:
+  - name: container2
+    image: ghcr.io/aureliomalheiros/motoko-kusanagi:1.4
+  - name: container1
+    image: nginx:1.14.2
