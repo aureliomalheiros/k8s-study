@@ -13,47 +13,7 @@ spec:
     spec:
       containers:
       - name: web-cat-black
-        image: aureliosmalheiros/cat-black:0.1
-        resources: {}
-        ports:
-        - containerPort: 80
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: web-cat-yellow
-spec:
-  selector:
-    matchLabels:
-      app: web-cat-yellow
-  template:
-    metadata:
-      labels:
-        app: web-cat-yellow
-    spec:
-      containers:
-      - name: web-cat-yellow
-        image: aureliosmalheiros/cat-yellow:0.1
-        resources: {}
-        ports:
-        - containerPort: 80
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: web-cat-white
-spec:
-  selector:
-    matchLabels:
-      app: web-cat-white
-  template:
-    metadata:
-      labels:
-        app: web-cat-white
-    spec:
-      containers:
-      - name: web-cat-white
-        image: aureliosmalheiros/cat-white:0.1
+        image: nginx
         resources: {}
         ports:
         - containerPort: 80
