@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mount-path
+  namespace: default
+spec:
+  volumes:
+  - name: logs-volume
+    emptyDir: {}
+  containers:
+  - image: nginx
+    name: mount-path
+    volumeMounts:
+    - mountPath: /cka
+      name: logs-volume

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-pv
+spec:
+  containers:
+    - name: my-pod-pv
+      image: nginx
+      volumeMounts:
+        - mountPath: "/cka/"
+          name: my-volume-cka
+  volumes:
+    - name: my-volume-cka
+      persistentVolumeClaim:
+        claimName: pvc-cka

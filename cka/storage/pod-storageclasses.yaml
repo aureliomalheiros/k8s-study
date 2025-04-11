@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: local-storage-pod-cka
+spec:
+  containers:
+  - name: app
+    image: nginx
+    volumeMounts:
+    - mountPath: "/usr/share/nginx/html"
+      name: local-storage
+  volumes:
+  - name: local-storage
+    persistentVolumeClaim:
+      claimName: local-pvc-cka
